@@ -1,0 +1,11 @@
+[package]
+name = "brainfsk"
+version = "0.1.0"
+authors = ["Hugo Arts <hugo@sushibowl.me>"]
+
+[[bin]]
+name = "brainfsk"
+doc = false
+
+[dependencies]
+docopt = "0.6.64"
