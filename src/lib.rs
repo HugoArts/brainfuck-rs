@@ -65,7 +65,7 @@ impl Context {
     /// set data cell at `address` to `value`
     ///
     /// It is preferred that you use this rather than accessing the data cell
-    /// directly, as this will ensure the address is in face allocated,
+    /// directly, as this will ensure the address is in fact allocated,
     /// preventing panics
     pub fn setdata(&mut self, address: usize, value: u8) {
         if address >= self.data.len() {
@@ -81,7 +81,7 @@ impl Context {
     /// get data cell at `address`
     ///
     /// It is preferred that you use this rather than accessing the data cell
-    /// directly, as this will ensure the address is in face allocated,
+    /// directly, as this will ensure the address is in fact allocated,
     /// preventing panics
     pub fn getdata(&self, address: usize) -> u8 {
         if address >= self.data.len() { 0 } else { self.data[address] }
