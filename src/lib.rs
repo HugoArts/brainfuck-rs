@@ -46,10 +46,10 @@ impl Context {
         for node in p {
             let cur_data = self.cur_data();
             match *node {
-                Op(IncPointer) => self.dp += 1,
-                Op(DecPointer) => self.dp -= 1,
-                Op(IncData)    => self.set_cur_data(cur_data + 1),
-                Op(DecData)    => self.set_cur_data(cur_data - 1),
+                Op(IncPointer) => self.dp = self.dp.wrapping_add(1),
+                Op(DecPointer) => self.dp = self.dp.wrapping_sub(1),
+                Op(IncData)    => self.set_cur_data(cur_data.wrapping_add(1)),
+                Op(DecData)    => self.set_cur_data(cur_data.wrapping_sub(1)),
                 Op(GetByte)    => self.set_cur_data(try!(Context::getbyte())),
                 Op(PutByte)    => print!("{:}", self.cur_data() as char),
                 Loop(ref x)    =>  {
